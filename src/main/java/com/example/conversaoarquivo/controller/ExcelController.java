@@ -22,11 +22,6 @@ public class ExcelController {
         if (file.isEmpty()) {
             return ResponseEntity.badRequest().body("Arquivo não enviado.");
         }
-
-        if (!file.getContentType().equals("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
-                && !file.getContentType().equals("application/vnd.ms-excel")) {
-            return ResponseEntity.badRequest().body("Tipo de Arquivo inválid. Envie um novo arquivo");
-        }
         try {
 
             soloService.lerArquivoExcel(file);
